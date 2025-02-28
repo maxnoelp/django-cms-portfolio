@@ -68,9 +68,13 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
+    "djangocms_simple_admin_style",
     "django.contrib.admin",
     "django.forms",
 ]
+
+CMS_APPS = []
+
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
