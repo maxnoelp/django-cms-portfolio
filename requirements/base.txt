@@ -8,7 +8,37 @@ hiredis==3.1.0  # https://github.com/redis/hiredis-py
 celery==5.4.0  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.7.0  # https://github.com/celery/django-celery-beat
 flower==2.0.1  # https://github.com/mher/flower
+boto3==1.37.4
+botocore==1.37.4
+cssselect2==0.7.0
+asgiref==3.8.1
+dj-database-url==2.3.0
+easy-thumbnails[svg]==2.10
+furl==2.1.3
+jmespath==1.0.1
+lxml==5.3.1
+nh3==0.2.21
+orderedmultidict==1.0.1
+packaging==24.2
+pip-tools==7.4.1
+psycopg2==2.9.10
+pyproject-hooks==1.2.0
+python-dateutil==2.9.0.post0
+reportlab==4.3.1
+s3transfer==0.11.3
+six==1.16.0
+sqlparse==0.5.2
+svglib==1.5.1
+tinycss2==1.4.0
+typing-extensions==4.12.2
+urllib3==2.2.3
+uwsgi==2.0.28
+webencodings==0.5.1
+wheel==0.45.0
 
+# The following packages are considered to be unsafe in a requirements file:
+# pip
+# setuptools
 # Django
 # ------------------------------------------------------------------------------
 django==5.0.12  # pyup: < 5.1  # https://www.djangoproject.com/
@@ -19,7 +49,28 @@ django-crispy-forms==2.3  # https://github.com/django-crispy-forms/django-crispy
 crispy-bootstrap5==2024.10  # https://github.com/django-crispy-forms/crispy-bootstrap5
 django-compressor==4.5.1  # https://github.com/django-compressor/django-compressor
 django-redis==5.4.0  # https://github.com/jazzband/django-redis
-
+django-entangled==0.5.4
+django-formtools==2.5.1
+django-fsm==2.8.2
+django-parler==2.3
+django-polymorphic==3.1.0
+django-sekizai==4.1.0
+django-storage-url==0.12.1
+django-storages==1.14.4
+django-treebeard==4.7.1
+easy-thumbnails==2.10
+django-classy-tags==4.1.0
 
 # Django CMS
 djangocms_simple_admin_style==1.1.1 # https://github.com/fsbraun/djangocms-simple-admin-style
+django-cms==4.1.4
+djangocms-text==0.3.3
+djangocms-frontend==1.3.5
+django-filer==3.3.1
+django-cms==4.1.4
+djangocms-versioning==2.2.0
+djangocms-alias==2.0.2
+djangocms-attributes-field==3.0.0
+djangocms-form-builder==0.3.0
+djangocms-redirect==0.7.3
+djangocms-snippet==5.0.0

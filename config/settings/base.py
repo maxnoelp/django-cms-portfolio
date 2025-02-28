@@ -73,7 +73,34 @@ DJANGO_APPS = [
     "django.forms",
 ]
 
-CMS_APPS = []
+CMS_APPS = [
+    "cms",
+    "menus",
+    "treebeard",
+    "sekizai",
+    "djangocms_versioning",
+    "djangocms_alias",
+    "parler",
+    "djangocms_frontend",
+    "djangocms_frontend.contrib.accordion",
+    "djangocms_frontend.contrib.alert",
+    "djangocms_frontend.contrib.badge",
+    "djangocms_frontend.contrib.card",
+    "djangocms_frontend.contrib.carousel",
+    "djangocms_frontend.contrib.collapse",
+    "djangocms_frontend.contrib.content",
+    "djangocms_frontend.contrib.grid",
+    "djangocms_frontend.contrib.jumbotron",
+    "djangocms_frontend.contrib.link",
+    "djangocms_frontend.contrib.listgroup",
+    "djangocms_frontend.contrib.media",
+    "djangocms_frontend.contrib.icon",
+    "djangocms_frontend.contrib.image",
+    "djangocms_frontend.contrib.tabs",
+    "djangocms_frontend.contrib.utilities",
+    "djangocms_form_builder",
+    "djangocms_snippet",
+]
 
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -83,14 +110,18 @@ THIRD_PARTY_APPS = [
     "allauth.mfa",
     "allauth.socialaccount",
     "django_celery_beat",
+    "filer",
+    "easy_thumbnails",
 ]
 
 LOCAL_APPS = [
     "portfolio.users",
     # Your stuff: custom apps go here
 ]
+CMS_CONFIRM_VERSION4 = True
+DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + CMS_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # MIGRATIONS
 # ------------------------------------------------------------------------------
@@ -145,6 +176,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "cms.middleware.user.CurrentUserMiddleware",
+    "cms.middleware.page.CurrentPageMiddleware",
+    "cms.middleware.toolbar.ToolbarMiddleware",
+    "cms.middleware.language.LanguageCookieMiddleware",
 ]
 
 # STATIC
@@ -188,12 +223,27 @@ TEMPLATES = [
                 "django.template.context_processors.i18n",
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
+                "django.template.context_processors.csrf",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "portfolio.users.context_processors.allauth_settings",
+                "cms.context_processors.cms_settings",
+                "sekizai.context_processors.sekizai",
             ],
         },
     },
+]
+
+THUMBNAIL_PROCESSORS = (
+    "easy_thumbnails.processors.colorspace",
+    "easy_thumbnails.processors.autocrop",
+    #'easy_thumbnails.processors.scale_and_crop',
+    "filer.thumbnail_processors.scale_and_crop_with_subject_location",
+    "easy_thumbnails.processors.filters",
+)
+
+CMS_TEMPLATES = [
+    ("cms_base.html", "Base Page"),
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#form-renderer
