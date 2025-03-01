@@ -79,6 +79,7 @@ CMS_APPS = [
     "treebeard",
     "sekizai",
     "djangocms_versioning",
+    "djangocms_snippet",
     "djangocms_alias",
     "parler",
     "djangocms_frontend",
@@ -98,7 +99,6 @@ CMS_APPS = [
     "djangocms_frontend.contrib.image",
     "djangocms_frontend.contrib.tabs",
     "djangocms_frontend.contrib.utilities",
-    "djangocms_snippet",
 ]
 
 THIRD_PARTY_APPS = [
