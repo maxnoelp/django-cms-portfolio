@@ -71,6 +71,5 @@ django-cms==4.1.4
 djangocms-versioning==2.2.0
 djangocms-alias==2.0.2
 djangocms-attributes-field==3.0.0
-djangocms-form-builder==0.3.0
 djangocms-redirect==0.7.3
 djangocms-snippet==5.0.0
