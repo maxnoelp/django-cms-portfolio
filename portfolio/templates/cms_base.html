@@ -1,3 +1,5 @@
+{% load static cms_tags sekizai_tags %}
+
 <!DOCTYPE html>
 {% load cms_tags menu_tags sekizai_tags static i18n %}
 
@@ -27,6 +29,7 @@
         {% endblock title %}
       </title>
       {% block base_css %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
       {% endblock base_css %}
     {% endspaceless %}
     {% render_block 'css' %}
@@ -39,11 +42,13 @@
     {% cms_toolbar %}
     {% spaceless %}
       {% block navbar %}
+        {% include "navbar.html" %}
       {% endblock navbar %}
       {% block content %}
         {% placeholder "Content" %}
       {% endblock content %}
       {% block base_js %}
+        <script src="{% static 'js/bootstrap.js' %}"></script>
       {% endblock base_js %}
     {% endspaceless %}
     {% render_block 'js' %}
