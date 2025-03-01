@@ -1,34 +1,57 @@
-<!DOCTYPE html>{% load cms_tags menu_tags sekizai_tags static i18n %}{% spaceless %}
-    <html lang="{{ LANGUAGE_CODE }}">
-        <head>
-            <meta charset="utf-8"/>
-            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-            {% block meta %}
-                <meta name="description" content="{% page_attribute meta_description %}"/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:title" content="{% page_attribute "page_title" %}"/>
-                <meta property="og:description" content="{% page_attribute meta_description %}"/>
-            {% endblock meta %}
-            {% block canonical_url %}
-                <link rel="canonical" href="{{ request.build_absolute_uri }}"/>
-                <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
-            {% endblock canonical_url %}
-            {% block fb_meta %}{% endblock fb_meta %}
-            <title>{% block title %}{% page_attribute "page_title" %}{% endblock %}</title>
-            {% block base_css %}{% endblock %}
-{% endspaceless %}{% render_block 'css' %}{% spaceless %}
-    {% block page_head %}{% endblock %}
+<!DOCTYPE html>
+{% load cms_tags menu_tags sekizai_tags static i18n %}
+
+{% spaceless %}
+  <html lang="{{ LANGUAGE_CODE }}">
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      {% block meta %}
+        <meta name="description" content="{% page_attribute meta_description %}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{% page_attribute "page_title" %}" />
+        <meta property="og:description"
+              content="{% page_attribute meta_description %}" />
+      {% endblock meta %}
+      {% block canonical_url %}
+        <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+        <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+      {% endblock canonical_url %}
+      {% block fb_meta %}
+      {% endblock fb_meta %}
+      <title>
+        {% block title %}
+          {% page_attribute "page_title" %}
+        {% endblock title %}
+      </title>
+      {% block base_css %}
+      {% endblock base_css %}
+    {% endspaceless %}
+    {% render_block 'css' %}
+    {% spaceless %}
+      {% block page_head %}
+      {% endblock page_head %}
     </head>
-    <body {% block body_attrs %}{% endblock %}>
-{% endspaceless %}{% cms_toolbar %}{% spaceless %}
-    {% block navbar %}{% endblock %}
-    {% block content %}
+    <body {% block body_attrs %}{% endblock body_attrs %}>
+    {% endspaceless %}
+    {% cms_toolbar %}
+    {% spaceless %}
+      {% block navbar %}
+      {% endblock navbar %}
+      {% block content %}
         {% placeholder "Content" %}
-    {% endblock content %}
-    {% block base_js %}{% endblock %}
-{% endspaceless %}{% render_block 'js' %}{% spaceless %}
-    {% block end_js %}{% endblock %}
-    {% block bottom_css %}{% endblock %}
+      {% endblock content %}
+      {% block base_js %}
+      {% endblock base_js %}
+    {% endspaceless %}
+    {% render_block 'js' %}
+    {% spaceless %}
+      {% block end_js %}
+      {% endblock end_js %}
+      {% block bottom_css %}
+      {% endblock bottom_css %}
     </body>
-  </html>{% endspaceless %}
+  </html>
+{% endspaceless %}
